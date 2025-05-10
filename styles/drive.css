@@ -1,0 +1,148 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url('../fonts/Montserrat/Montserrat-VariableFont_wght.ttf');
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+html, body {
+    background-color: #fff;
+    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+}
+
+/* header */
+.header {
+    padding: 20px 0;
+}
+
+.nav__list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.nav__item:first-child .nav__link {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #0077b6;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: #e6f7ff;
+    transition: background-color .3s ease-in-out, color .3s ease-in-out;
+}
+
+.nav__item:first-child .nav__link:hover {
+    background-color: #b3e0ff;
+    color: #005f73;
+    transition: background-color .3s ease-in-out, color .3s ease-in-out;
+}
+
+.nav__item:first-child .nav__link:active {
+    background-color: #80c1ff;
+    color: #004763;
+    transition: background-color .3s ease-in-out, color .3s ease-in-out;
+}
+
+/* drive */
+h1 {
+    font-weight: 400;
+}
+
+.test-drive {
+    padding-top: 75px;
+}
+
+.test-drive__heading {
+    display: inline-block;
+    max-width: max-content;
+}
+
+.cars__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.car {
+    width: 30%;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: background-color .3s ease-in-out;
+    height: max-content;
+}
+
+.car:hover {
+    background-color: #e6f7ff;
+    transition: background-color .3s ease-in-out;
+}
+
+.car.selected {
+    background-color: #b3e0ff;
+}
+
+.car__photo {
+    width: 100%;
+    border-radius: 16px;
+}
+
+.car__name {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.date-time__selection {
+    max-width: 635px;
+    margin: 0 auto;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.date-time__selection label {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.date-time__selection input {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.submit__button {
+    font-size: 1.2rem;
+    display: block;
+    margin: 20px auto;
+    padding: 15px 30px;
+    background-color: #0077b6;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color .3s ease-in-out;
+}
+
+.submit__button:hover {
+    background-color: #005f73;
+    transition: background-color .3s ease-in-out;
+}

@@ -1,5 +1,5 @@
 <?php 
-require_once __DIR__ . "/html/index_auth.html"
+require_once __DIR__ . "/html/index_auth.html";
 ?>
 
 <?php 
