@@ -1,5 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var cars = document.querySelectorAll('.car');
+    const cars = document.querySelectorAll('.car');
+    const submitButton = document.querySelector('.submit__button');
+    const dateInput = document.getElementById('date');
+    const timeInput = document.getElementById('time');
+    const brandInput = document.getElementById('selected-brand');
+    const modelInput = document.getElementById('selected-model');
+
+    function updateSubmitButton() {
+        const isCarSelected = brandInput.value && modelInput.value;
+        const isDateSelected = dateInput.value;
+        const isTimeSelected = timeInput.value;
+        
+        submitButton.disabled = !(isCarSelected && isDateSelected && isTimeSelected);
+    }
 
     cars.forEach(function(car) {
         car.addEventListener('click', function() {
@@ -8,8 +21,12 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             this.classList.add('selected');
 
-            document.getElementById('selected_brand').value = this.getAttribute('data-brand');
-            document.getElementById('selected_model').value = this.getAttribute('data-model');
+            brandInput.value = this.getAttribute('data-brand');
+            modelInput.value = this.getAttribute('data-model');
+            updateSubmitButton();
         });
     });
+
+    dateInput.addEventListener('change', updateSubmitButton);
+    timeInput.addEventListener('change', updateSubmitButton);
 });

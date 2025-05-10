@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +8,24 @@
     <link rel="shortcut icon" href="../src/icons/icon_site.png" type="image/x-icon">
 </head>
 <body>
+    <header class="header">
+        <nav class="nav container">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="/index.php" class="nav__link">Главная</a></li>
+                <li class="nav__item"><a href="/account.php" class="nav__link">Личный кабинет</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <section class="success">
         <div class="container">
             <div class="container__heading">
-                <h1 class="heading">Вы успешно записались на тест драйв!</h1>
+                <h1 class="heading">Вы успешно записались на тест-драйв!</h1>
+                <p class="success__message"><?php echo $_SESSION['success']; unset($_SESSION['success']); ?></p>
             </div>
-            <div class="button">
-                <button type="button" onclick="goBack()">Вернуться назад</button>
+            <div class="buttons">
+                <a href="/account.php" class="button">Перейти в личный кабинет</a>
+                <button type="button" onclick="goBack()" class="button">Вернуться назад</button>
             </div>
         </div>
     </section>

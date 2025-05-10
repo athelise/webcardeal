@@ -1,4 +1,6 @@
 <?php
+session_start(); // Добавляем старт сессии
+
 $servername = "localhost";
 $username = "root";
 $password = "Aicberg1337!_Aicberg1337!";
@@ -10,7 +12,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Функция для отображения автомобилей
 function displayCars($conn, $category = null) {
     $sql = "SELECT brand, model, price, photo_url, class FROM cars";
     if ($category) {
@@ -48,7 +49,11 @@ function displayCars($conn, $category = null) {
     <header class="header">
         <nav class="nav container">
             <ul class="nav__list">
-                <li class="nav__item"><a href="/index.php" class="nav__link">Главная</a></li>
+                <li class="nav__item">
+                    <a href="<?php echo isset($_SESSION['user_id']) ? '/index_auth.php' : '/index.php'; ?>" class="nav__link">
+                        Главная
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>

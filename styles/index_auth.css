@@ -14,12 +14,16 @@
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 html, body {
     background-color: #fff;
     font-size: 16px;
     font-family: "Montserrat", sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* header */
@@ -28,19 +32,40 @@ html, body {
     border-radius: 0 0 32px 32px;
     box-shadow: 0 0 15px 1px #000;
     background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 }
 
 .nav {
     padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #000;
+    transition: color .3s ease-in-out;
+}
+
+.nav__logo:hover {
+    color: #0496ff;
 }
 
 .nav__list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     text-align: center;
     list-style: none;
+    gap: 20px;
 }
 
 .nav__item {
@@ -51,11 +76,14 @@ html, body {
     text-decoration: none;
     color: #000;
     transition: color .3s ease-in-out;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
 .nav__link:hover {
     color: #0496ff;
-    transition: color .3s ease-in-out;
+    background-color: #f8f9fa;
+    transition: all .3s ease-in-out;
 }
 
 .nav__link:active {
@@ -63,9 +91,15 @@ html, body {
     transition: color .3s ease-in-out;
 }
 
+/* main content */
+.main {
+    flex: 1;
+    margin-top: 100px;
+}
+
 /* about */
 .about {
-    padding-top: 150px;
+    padding-top: 50px;
 }
 
 .about__heading {
@@ -84,6 +118,7 @@ html, body {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
 }
 
 .about__description {
@@ -121,6 +156,7 @@ html, body {
     font-size: 1.5rem;
     text-align: center;
 }
+
 .citate:before,
 .citate:after {
     position: absolute;
@@ -129,16 +165,19 @@ html, body {
     font-family: Times, sans-serif;    
     line-height: 100px;    
 }
+
 .citate:before {
     content: '“';
-    left: 350px;
+    left: 325px;
     top: -10px;
 }
+
 .citate:after {
     content: '”';
-    right: 350px;
+    right: 325px;
     bottom: -20px;
 }
+
 .citate cite {
     color: #00b4d8;
     font-size: 1rem;
@@ -146,9 +185,14 @@ html, body {
     display: block;
 }
 
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
 /* employees */
 .employees {
-    padding-top: 150px;
+    padding-top: 50px;
 }
 
 .employees__heading {
@@ -160,11 +204,12 @@ html, body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    gap: 20px;
     margin-top: 25px;
 }
 
 .employee {
-    width: 30%;
+    width: calc(33.333% - 20px);
     margin-bottom: 20px;
     padding: 15px;
     background-color: #f8f9fa;
@@ -195,7 +240,7 @@ html, body {
 
 /* cars */
 .cars {
-    padding-top: 150px;
+    padding-top: 50px;
 }
 
 .cars__heading {
@@ -207,11 +252,12 @@ html, body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    gap: 20px;
     margin-top: 25px;
 }
 
 .car {
-    width: 30%;
+    width: calc(33.333% - 20px);
     margin-bottom: 20px;
     padding: 15px;
     background-color: #f8f9fa;
@@ -249,10 +295,11 @@ html, body {
     color: #fff;
     text-decoration: none;
     border-radius: 8px;
-    transition: background-color .3s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 
 .button:hover {
     background-color: #005f73;
-    transition: background-color .3s ease-in-out;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
