@@ -54,6 +54,11 @@ html, body {
 }
 
 .nav__link:hover {
+    color: #0496ff;
+    transition: color .3s ease-in-out;
+}
+
+.nav__link:active {
     color: #0077b6;
     transition: color .3s ease-in-out;
 }
