@@ -145,3 +145,114 @@ html, body {
     padding-top: 10px;
     display: block;
 }
+
+/* employees */
+.employees {
+    padding-top: 150px;
+}
+
+.employees__heading {
+    display: inline-block;
+    max-width: max-content;
+}
+
+.employees__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.employee {
+    width: 30%;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 16px;
+    height: max-content;
+}
+
+.employee__photo {
+    width: 100%;
+    border-radius: 16px;
+}
+
+.employee__name {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.employee__position {
+    font-size: 1.2rem;
+    color: #0077b6;
+    margin-top: 5px;
+}
+
+.employee__description {
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+/* cars */
+.cars {
+    padding-top: 150px;
+}
+
+.cars__heading {
+    display: inline-block;
+    max-width: max-content;
+}
+
+.cars__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.car {
+    width: 30%;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.car__photo {
+    width: 100%;
+    border-radius: 16px;
+}
+
+.car__name {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.car__price {
+    font-size: 1.2rem;
+    color: #0077b6;
+    margin-top: 5px;
+}
+
+.cars__button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.button {
+    margin-bottom: 25px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0077b6;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color .3s ease-in-out;
+}
+
+.button:hover {
+    background-color: #005f73;
+    transition: background-color .3s ease-in-out;
+}

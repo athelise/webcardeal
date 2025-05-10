@@ -40,4 +40,39 @@ if ($result -> num_rows > 0) {
 } else {
     echo "Нет данных о сотрудниках.";
 }
+
+$sql = "SELECT brand, model, price, photo_url FROM cars LIMIT 3";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    echo '<section class="cars" id="cars">';
+    echo '<div class="container">';
+    echo '<div class="cars__heading">';
+    echo '<h1 class="heading">Каталог</h1>';
+    echo '</div>';
+    echo '<div class="cars__list">';
+
+    while($row = $result->fetch_assoc()) {
+        echo '<div class="car">';
+        echo '<img src="' . $row["photo_url"] . '" alt="' . $row["brand"] . ' ' . $row["model"] . '" class="car__photo">';
+        echo '<h2 class="car__name">' . $row["brand"] . ' ' . $row["model"] . '</h2>';
+        echo '<p class="car__price">' . $row["price"] . '$</p>';
+        echo '</div>';
+    }
+
+    echo '</div>';
+    echo '<div class="cars__button">';
+    echo '<a href="/catalog.php" class="button">Посмотреть еще</a>';
+    echo '</div>';
+    echo '</div>';
+    echo '</section>';
+} else {
+    echo "Нет данных об автомобилях.";
+}
+
+$conn->close();
+?>
+
+<?php 
+require_once __DIR__ . "/html/footer.html"
 ?>

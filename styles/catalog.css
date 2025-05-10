@@ -1,0 +1,130 @@
+@font-face {
+    font-family: "Montserrat";
+    src: url('../fonts/Montserrat/Montserrat-VariableFont_wght.ttf');
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: #fff;
+    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+}
+
+/* catalog */
+.container {
+    max-width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    padding-top: 20px;
+}
+
+.nav__item:first-child .nav__link {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #0077b6;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: #e6f7ff;
+    transition: background-color .3s ease-in-out, color .3s ease-in-out;
+}
+
+.nav__item:first-child .nav__link:hover {
+    background-color: #b3e0ff;
+    color: #005f73;
+    transition: background-color .3s ease-in-out, color .3s ease-in-out;
+}
+
+.nav__item:first-child .nav__link:active {
+    background-color: #80c1ff;
+    color: #004763;
+    transition: background-color .3s ease-in-out, color .3s ease-in-out;
+}
+
+.sidebar {
+    width: 200px;
+    height: max-content;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 16px;
+}
+
+.category__list {
+    list-style: none;
+    padding: 0;
+}
+
+.category__item {
+    margin-bottom: 10px;
+}
+
+.category__link {
+    text-decoration: none;
+    color: #000;
+    transition: color .3s ease-in-out;
+}
+
+.category__link:hover {
+    color: #0496ff;
+    transition: color .3s ease-in-out;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+.cars__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.car {
+    width: 30%;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.car__photo {
+    width: 100%;
+    border-radius: 16px;
+}
+
+.car__name {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.car__price {
+    font-size: 1.2rem;
+    color: #0077b6;
+    margin-top: 5px;
+}
+
+.car__class {
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+/* header */
+.header {
+    padding: 20px 0;
+}
+
+.nav__list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
