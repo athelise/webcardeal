@@ -18,6 +18,152 @@
 - **Дополнительные технологии**:
   - PHPSpreadsheet для работы с Excel
 
+## Установка и настройка окружения
+
+### Windows
+
+1. **Установка PHP**:
+   - Скачайте PHP 8.0 или выше с [официального сайта](https://windows.php.net/download/)
+   - Распакуйте архив в `C:\php`
+   - Настройка системных путей:
+     ```batch
+     # Откройте "Система" -> "Дополнительные параметры системы" -> "Переменные среды"
+     # В разделе "Системные переменные" найдите PATH и добавьте:
+     C:\php
+     C:\php\ext
+     ```
+   - Альтернативный способ через командную строку (требуются права администратора):
+     ```batch
+     setx PATH "%PATH%;C:\php;C:\php\ext" /M
+     ```
+   - Скопируйте `php.ini-development` в `php.ini`
+   - В `php.ini` раскомментируйте строки:
+     ```ini
+     extension=mysqli
+     extension=pdo_mysql
+     extension=openssl
+     extension=fileinfo
+     extension=mbstring
+     extension=exif
+     extension=gd
+     ```
+
+2. **Установка MySQL**:
+   - Скачайте MySQL 8.0 с [официального сайта](https://dev.mysql.com/downloads/installer/)
+   - Запустите установщик и следуйте инструкциям
+   - При настройке root пароля:
+     ```sql
+     # После установки MySQL, откройте командную строку MySQL:
+     mysql -u root -p
+     # Если пароль не установлен, нажмите Enter
+     
+     # Установите новый пароль:
+     ALTER USER 'root'@'localhost' IDENTIFIED BY 'Aicberg1337!_Aicberg1337!';
+     FLUSH PRIVILEGES;
+     ```
+   - Убедитесь, что служба MySQL запущена:
+     ```batch
+     # Проверка статуса службы
+     sc query MySQL80
+     
+     # Запуск службы если не запущена
+     net start MySQL80
+     ```
+
+3. **Установка Composer**:
+   - Скачайте установщик с [getcomposer.org](https://getcomposer.org/download/)
+   - Запустите установщик и следуйте инструкциям
+   - Проверьте установку: `composer --version`
+
+4. **Установка PHPSpreadsheet**:
+   ```bash
+   composer require phpoffice/phpspreadsheet
+   ```
+
+### Linux (Ubuntu/Debian)
+
+1. **Установка PHP**:
+   ```bash
+   sudo apt update
+   sudo apt install php8.0 php8.0-mysql php8.0-mbstring php8.0-xml php8.0-zip
+   ```
+
+2. **Установка MySQL**:
+   ```bash
+   sudo apt install mysql-server
+   sudo mysql_secure_installation
+   # Установите пароль root: Aicberg1337!_Aicberg1337!
+   ```
+
+3. **Установка Composer**:
+   ```bash
+   php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+   sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+   rm composer-setup.php
+   ```
+
+4. **Установка PHPSpreadsheet**:
+   ```bash
+   composer require phpoffice/phpspreadsheet
+   ```
+
+### Linux (Fedora)
+
+1. **Установка PHP**:
+   ```bash
+   sudo dnf update
+   sudo dnf install php php-mysqlnd php-mbstring php-xml php-zip
+   ```
+
+2. **Установка MySQL**:
+   ```bash
+   sudo dnf install mysql-server
+   sudo systemctl start mysqld
+   sudo systemctl enable mysqld
+   
+   # Получение временного пароля
+   sudo grep 'temporary password' /var/log/mysqld.log
+   
+   # Установка нового пароля
+   mysql -u root -p
+   # Введите временный пароль из предыдущего шага
+   
+   # В MySQL выполните:
+   ALTER USER 'root'@'localhost' IDENTIFIED BY 'Aicberg1337!_Aicberg1337!';
+   FLUSH PRIVILEGES;
+   ```
+
+3. **Установка Composer**:
+   ```bash
+   php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+   sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+   rm composer-setup.php
+   ```
+
+4. **Установка PHPSpreadsheet**:
+   ```bash
+   composer require phpoffice/phpspreadsheet
+   ```
+
+### Проверка установки
+
+После установки всех компонентов, выполните следующие команды для проверки:
+
+```bash
+# Проверка версии PHP
+php -v
+
+# Проверка версии MySQL
+mysql --version
+
+# Проверка версии Composer
+composer --version
+
+# Проверка подключения к MySQL
+mysql -u root -p
+# Введите пароль: Aicberg1337!_Aicberg1337!
+```
+
 ## Структура проекта
 ```
 webcardeal/
