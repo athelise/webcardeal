@@ -17,6 +17,7 @@
 - **База данных**: MySQL
 - **Дополнительные технологии**:
   - PHPSpreadsheet для работы с Excel
+  - Composer для управления зависимостями
 
 ## Установка и настройка окружения
 
@@ -145,7 +146,68 @@
    composer require phpoffice/phpspreadsheet
    ```
 
-### Проверка установки
+## Запуск локального сервера
+
+### Windows
+
+1. **Запуск PHP сервера**:
+   ```batch
+   # Перейдите в корневую директорию проекта
+   cd path\to\webcardeal
+   
+   # Запустите PHP сервер
+   php -S localhost:8000
+   ```
+
+2. **Проверка работы сервера**:
+   - Откройте браузер
+   - Перейдите по адресу: `http://localhost:8000`
+   - Должна отобразиться главная страница сайта
+
+### Linux (Ubuntu/Debian/Fedora)
+
+1. **Запуск PHP сервера**:
+   ```bash
+   # Перейдите в корневую директорию проекта
+   cd /path/to/webcardeal
+   
+   # Запустите PHP сервер
+   php -S localhost:8000
+   ```
+
+2. **Проверка работы сервера**:
+   - Откройте браузер
+   - Перейдите по адресу: `http://localhost:8000`
+   - Должна отобразиться главная страница сайта
+
+### Дополнительные настройки сервера
+
+1. **Настройка виртуального хоста**:
+   - Создайте файл `php.ini` в корневой директории проекта:
+     ```ini
+     display_errors = On
+     error_reporting = E_ALL
+     memory_limit = 256M
+     max_execution_time = 300
+     post_max_size = 64M
+     upload_max_filesize = 64M
+     ```
+
+2. **Настройка прав доступа**:
+   ```bash
+   # Linux
+   sudo chown -R www-data:www-data /path/to/webcardeal
+   sudo chmod -R 755 /path/to/webcardeal
+   
+   # Windows (в PowerShell с правами администратора)
+   icacls "C:\path\to\webcardeal" /grant "IUSR:(OI)(CI)(RX)" /T
+   ```
+
+3. **Проверка логов**:
+   - Windows: `C:\php\logs\php_error.log`
+   - Linux: `/var/log/apache2/error.log` или `/var/log/nginx/error.log`
+
+## Проверка установки
 
 После установки всех компонентов, выполните следующие команды для проверки:
 
