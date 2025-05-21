@@ -50,7 +50,7 @@ function displayCars($conn, $category = null) {
         <nav class="nav container">
             <ul class="nav__list">
                 <li class="nav__item">
-                    <a href="<?php echo isset($_SESSION['user_id']) ? '/index_auth.php' : '/index.php'; ?>" class="nav__link">
+                    <a href="<?php echo isset($_SESSION['user']) ? '/index_auth.php' : '/index.php'; ?>" class="nav__link">
                         Главная
                     </a>
                 </li>

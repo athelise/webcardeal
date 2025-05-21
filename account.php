@@ -4,8 +4,8 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-if (!isset($_SESSION['user_id'])) {
-    header("Location: /login.php");
+if (!isset($_SESSION['user'])) {
+    header("Location: /auth.php");
     exit;
 }
 
@@ -19,7 +19,7 @@ try {
     if ($conn->connect_error) {
         throw new Exception("Ошибка подключения к БД: " . $conn->connect_error);
     }
-    $user_id = $_SESSION['user_id'];
+    $user_id = $_SESSION['user']['id'];
     $stmt = $conn->prepare("SELECT first_name, last_name, email, phone FROM users WHERE id = ?");
     
     if (!$stmt) {
@@ -60,7 +60,7 @@ try {
 <body>
     <header class="header">
         <nav class="nav container">
-            <a href="/" class="nav__logo">WebCarDeal</a>
+            <a href="/" class="nav__logo">Мир Тазиков</a>
             <ul class="nav__list">
                 <li class="nav__item"><a href="/catalog.php" class="nav__link">Каталог</a></li>
                 <li class="nav__item"><a href="/drive.php" class="nav__link">Тест-драйв</a></li>

@@ -9,6 +9,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
 }
 
 .container {
@@ -290,16 +291,149 @@ html {
 .button {
     margin-bottom: 25px;
     display: inline-block;
-    padding: 10px 20px;
+    padding: 12px 24px;
     background-color: #0077b6;
     color: #fff;
     text-decoration: none;
     border-radius: 8px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
     transition: all .3s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .button:hover {
     background-color: #005f73;
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* quote */
+.quote {
+    padding: 100px 0 50px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.quote__content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.quote__title {
+    font-size: 2.5rem;
+    color: #0077b6;
+    margin-bottom: 20px;
+}
+
+.quote__text {
+    font-size: 1.25rem;
+    color: #666;
+}
+
+/* contact */
+.contact {
+    padding: 50px 0;
+    background-color: #fff;
+}
+
+.contact__heading {
+    display: inline-block;
+    max-width: max-content;
+    margin-bottom: 40px;
+}
+
+.contact__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+}
+
+.contact__info {
+    flex: 1;
+    min-width: 300px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.contact__item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact__item h3 {
+    color: #0077b6;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.contact__item p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.contact__form {
+    flex: 1;
+    min-width: 300px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form__input,
+.form__textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: "Montserrat", sans-serif;
+}
+
+.form__textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.form__input:focus,
+.form__textarea:focus {
+    outline: none;
+    border-color: #0077b6;
+}
+
+.message {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
 }

@@ -23,10 +23,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             VALUES ('$first_name', '$last_name', '$email', '$phone', '$password')";
 
     if ($conn->query($sql) === TRUE) {
-        $_SESSION['user_id'] = $conn->insert_id;
-        $_SESSION['first_name'] = $first_name;
-        $_SESSION['last_name'] = $last_name;
-        $_SESSION['email'] = $email;
+        $_SESSION['user'] = [
+            'id' => $conn->insert_id,
+            'first_name' => $first_name,
+            'last_name' => $last_name,
+            'email' => $email
+        ];
         
         setcookie('user_email', $email, time() + (86400 * 30), "/"); // 30 days
         

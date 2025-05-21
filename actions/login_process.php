@@ -22,10 +22,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows == 1) {
         $user = $result->fetch_assoc();
         if (password_verify($password, $user['password'])) {
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['first_name'] = $user['first_name'];
-            $_SESSION['last_name'] = $user['last_name'];
-            $_SESSION['email'] = $user['email'];
+            $_SESSION['user'] = [
+                'id' => $user['id'],
+                'first_name' => $user['first_name'],
+                'last_name' => $user['last_name'],
+                'email' => $user['email']
+            ];
             
             setcookie('user_email', $email, time() + (86400 * 30), "/"); // 30 days
             
@@ -38,5 +40,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: /auth.php");
     exit();
 }
-$conn -> close();
+$conn->close();
 ?> 

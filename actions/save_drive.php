@@ -5,7 +5,7 @@ require '../vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['user'])) {
     $_SESSION['error'] = "Пожалуйста, войдите в систему для записи на тест-драйв";
     header("Location: /auth.php");
     exit();
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $model = htmlspecialchars($_POST['model']);
     $date = htmlspecialchars($_POST['date']);
     $time = htmlspecialchars($_POST['time']);
-    $user_id = $_SESSION['user_id'];
+    $user_id = $_SESSION['user']['id'];
 
     $servername = "localhost";
     $username = "root";

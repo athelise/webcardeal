@@ -10,11 +10,107 @@
 - Личный кабинет пользователя
 - Автоматическая генерация Excel-отчетов
 - Управление сессиями и cookies
+- Контактная форма с сохранением сообщений
+- Адаптивный дизайн
+
+## Структура проекта
+```
+webcardeal/
+├── actions/                 # Обработчики форм и действий
+│   ├── auth_users.php      # Авторизация пользователей
+│   ├── login_process.php   # Обработка входа
+│   ├── logout.php          # Выход из системы
+│   ├── register_process.php # Обработка регистрации
+│   ├── save_drive.php      # Сохранение записи на тест-драйв
+│   └── submit_contact.php  # Обработка контактной формы
+├── html/                   # HTML шаблоны
+│   ├── index.html         # Главная страница
+│   ├── index_auth.html    # Главная страница для авторизованных
+│   └── footer.html        # Подвал сайта
+├── scripts/               # JavaScript файлы
+├── src/                   # Статические ресурсы
+│   ├── icons/            # Иконки
+│   └── images/           # Изображения
+├── styles/               # CSS стили
+├── vendor/              # Зависимости Composer
+├── excel_docs/          # Генерируемые Excel файлы
+├── account.php          # Личный кабинет
+├── auth.php            # Страница авторизации
+├── catalog.php         # Каталог автомобилей
+├── drive.php           # Запись на тест-драйв
+├── index.php           # Главная страница
+├── index_auth.php      # Главная для авторизованных
+├── register.php        # Страница регистрации
+└── success_drive.php   # Страница успешной записи
+```
+
+## Управление сессиями
+Проект использует PHP сессии для управления состоянием пользователя. Структура сессии:
+
+```php
+$_SESSION['user'] = [
+    'id' => $user_id,
+    'first_name' => $first_name,
+    'last_name' => $last_name,
+    'email' => $email
+];
+```
+
+### Особенности реализации сессий:
+- Сессии стартуют в начале каждого PHP файла через `session_start()`
+- Проверка авторизации: `isset($_SESSION['user'])`
+- Доступ к данным пользователя: `$_SESSION['user']['field_name']`
+- При выходе: полная очистка сессии и cookies
+- Cookies для "запомнить меня" (30 дней)
+
+## База данных
+### Структура таблиц:
+
+1. **users**
+   - id (PRIMARY KEY)
+   - first_name
+   - last_name
+   - email (UNIQUE)
+   - phone
+   - password (hashed)
+
+2. **cars**
+   - id (PRIMARY KEY)
+   - brand
+   - model
+   - price
+   - photo_url
+   - class
+
+3. **test_drives**
+   - id (PRIMARY KEY)
+   - user_id (FOREIGN KEY)
+   - brand
+   - model
+   - booking_date
+   - booking_time
+   - status
+
+4. **contact_messages**
+   - id (PRIMARY KEY)
+   - user_id (FOREIGN KEY)
+   - name
+   - email
+   - message
+   - created_at
+
+## Безопасность
+- Все пароли хешируются с использованием `password_hash()`
+- Защита от SQL-инъекций через подготовленные запросы
+- Экранирование вывода через `htmlspecialchars()`
+- Валидация входных данных
+- Защита от XSS-атак
+- Безопасное управление сессиями
 
 ## Технический стек
-- **Backend**: PHP
+- **Backend**: PHP 8.0+
 - **Frontend**: HTML5, CSS3, JavaScript
-- **База данных**: MySQL
+- **База данных**: MySQL 8.0
 - **Дополнительные технологии**:
   - PHPSpreadsheet для работы с Excel
   - Composer для управления зависимостями
@@ -180,18 +276,18 @@
    - Перейдите по адресу: `http://localhost:8000`
    - Должна отобразиться главная страница сайта
 
-### Дополнительные настройки сервера
+## Дополнительные настройки
 
-1. **Настройка виртуального хоста**:
-   - Создайте файл `php.ini` в корневой директории проекта:
-     ```ini
-     display_errors = On
-     error_reporting = E_ALL
-     memory_limit = 256M
-     max_execution_time = 300
-     post_max_size = 64M
-     upload_max_filesize = 64M
-     ```
+### Настройка виртуального хоста
+Создайте файл `php.ini` в корневой директории проекта:
+```ini
+display_errors = On
+error_reporting = E_ALL
+memory_limit = 256M
+max_execution_time = 300
+post_max_size = 64M
+upload_max_filesize = 64M
+```
 
 2. **Настройка прав доступа**:
    ```bash
